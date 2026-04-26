@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>离线单词打乱练习器</title>
+    <script>
+      // LocalStorage shim for file:// protocol restricted environments (like some offline browsers)
+      try {
+        localStorage.getItem("test");
+      } catch (e) {
+        console.warn("LocalStorage restricted, using memory shim.");
+        var memoryStore = {};
+        window.localStorage = {
+          getItem: function (key) {
+            return memoryStore[key] || null;
+          },
+          setItem: function (key, val) {
+            memoryStore[key] = val;
+          },
+          removeItem: function (key) {
+            delete memoryStore[key];
+          },
+          clear: function () {
+            memoryStore = {};
+          },
+        };
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
