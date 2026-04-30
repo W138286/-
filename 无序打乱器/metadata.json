@@ -1,6 +1,0 @@
-{
-  "name": "无序打乱器",
-  "description": "一个用于将英语单词或中文释义随机打乱，并导出为 Word 文档表格的工具。Produced by Werther",
-  "requestFramePermissions": [],
-  "majorCapabilities": []
-}
